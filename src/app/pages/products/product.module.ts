@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductFormComponent } from './product-form/product-form.component';
@@ -7,7 +8,8 @@ import { ProductRoutingModule } from './product-routing.module';
 @NgModule({
   imports: [
     ProductRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   declarations: [
     ProductListComponent,

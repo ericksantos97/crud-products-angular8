@@ -58,6 +58,7 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
     const product = Object.assign(new Product(), this.resourceForm.value);
 
     this.service.createProduct(product).subscribe(res => {
+      this.router.navigate(['/products']);
       console.log(res);
     }, err => {
       console.log(err);
@@ -68,6 +69,7 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
     const product = Object.assign(new Product(), this.resourceForm.value);
 
     this.service.updateProduct(this.id, product).subscribe(res => {
+      this.router.navigate(['/products']);
       console.log(res);
     }, err => {
       console.log(err);

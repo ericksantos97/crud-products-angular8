@@ -31,7 +31,7 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
     this.resourceForm = this.formBuilder.group({
       id: [null],
       name: [null, Validators.compose([Validators.required, Validators.minLength(2)])],
-      description: [null],
+      description: [null, Validators.compose([Validators.required])],
       price: [null, Validators.compose([Validators.required])]
     });
   }

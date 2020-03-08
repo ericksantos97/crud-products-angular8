@@ -29,6 +29,18 @@
       "name": "cx",
       "description": "zxcz",
       "price": 0.01
+    },
+    {
+      "id": 6,
+      "name": "sdas",
+      "description": "asda",
+      "price": 32.2
+    },
+    {
+      "id": 7,
+      "name": "sda",
+      "description": "sada",
+      "price": 33.2
     }
   ]
 }

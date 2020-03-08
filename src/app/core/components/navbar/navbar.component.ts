@@ -12,21 +12,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public nameUser = '';
   public subscription: Subscription;
-  public isToken = '';
+  // public isToken = '';
 
   constructor(private service: LoginService, private tokenService: TokenService) { }
 
   public ngOnInit(): void {
-    this.subscription = this.service.getEvent().subscribe(value => this.nameUser = value);
-    this.isUserLogged();
+    this.subscription = this.service.getEvent().subscribe(value => {
+      this.nameUser = value;
+      this.isUserLogged();
+    });
   }
 
   public ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  private isUserLogged(): void {
-    this.isToken = this.tokenService.getToken('token');
+  public isUserLogged(): string {
+    return this.tokenService.getToken('token');
   }
 
 }

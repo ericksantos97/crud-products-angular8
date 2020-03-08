@@ -7,8 +7,8 @@ import { RouterModule } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { ConfirmModalComponent } from '../shared/components/confirm-modal/confirm-modal.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthGuard } from './auth/guards/auth-guard.guard';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   imports: [

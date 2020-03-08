@@ -17,9 +17,9 @@ export class LoginComponent extends BaseResourceFormComponent implements OnInit 
   public user: User;
 
   constructor(protected injector: Injector,
-    private service: LoginService,
-    private alertService: AlertModalService,
-    private tokenService: TokenService) {
+              private service: LoginService,
+              private alertService: AlertModalService,
+              private tokenService: TokenService) {
     super(injector);
   }
 

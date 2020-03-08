@@ -8,6 +8,7 @@ import { ModalModule } from 'ngx-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { ConfirmModalComponent } from '../shared/components/confirm-modal/confirm-modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthGuard } from './auth/guards/auth-guard.guard';
 
 @NgModule({
   imports: [
@@ -39,6 +40,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   entryComponents: [
     ConfirmModalComponent
+  ],
+  providers: [
+    AuthGuard
   ]
 })
 export class CoreModule { }

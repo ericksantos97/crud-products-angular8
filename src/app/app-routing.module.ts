@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/auth/guards/auth-guard.guard';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    // canActivate: [AuthGuard],
     redirectTo: 'login'
   },
   {
@@ -14,11 +14,12 @@ const routes: Routes = [
   },
   {
     path: 'products',
-    loadChildren: () => import('./pages/products/product.module').then(m => m.ProductModule)
+    loadChildren: () => import('./pages/products/product.module').then(m => m.ProductModule),
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     redirectTo: 'products'
   }
 ];

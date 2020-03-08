@@ -1,8 +1,8 @@
-import { Product } from './../model/product';
 import { AfterContentChecked, Component, Injector, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { BaseResourceFormComponent } from 'src/app/shared/components/base-resource-form/base-resource-form.component';
 import { ProductService } from '../service/product.service';
+import { Product } from './../model/product';
 
 @Component({
   selector: 'app-product-form',
@@ -18,9 +18,9 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
   }
 
   public ngOnInit(): void {
-    this.setCurrentAction();
-    this.checkRouteId();
+    this.setPageTitle();
     this.buildResourceForm();
+    this.checkRouteId();
   }
 
   public ngAfterContentChecked(): void {
@@ -37,10 +37,10 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
   }
 
   public checkRouteId(): void {
-    this.id = +this.route.snapshot.paramMap.get('id');
+    const product = this.route.snapshot.data.product;
 
-    if (this.id) {
-      this.service.getProductById(this.id).subscribe(result => this.resourceForm.patchValue(result));
+    if (product) {
+      this.resourceForm.patchValue(product);
     }
   }
 
@@ -76,28 +76,19 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
     });
   }
 
-  protected setCurrentAction(): void {
+  private setPageTitle(): void {
     if (this.route.snapshot.url[0].path === 'create') {
-      this.currentAction = 'create';
-    } else {
-      this.currentAction = 'edit';
-    }
-  }
-
-  protected setPageTitle(): void {
-
-    if (this.currentAction === 'create') {
       this.pageTitle = this.creationPageTitle();
     } else {
       this.pageTitle = this.editionPageTitle();
     }
   }
 
-  protected creationPageTitle(): string {
+  private creationPageTitle(): string {
     return 'Cadastrar';
   }
 
-  protected editionPageTitle(): string {
+  private editionPageTitle(): string {
     return 'Editar';
   }
 

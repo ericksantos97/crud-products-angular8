@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductResolver } from './resolver/product-resolver.resolver';
 
 const routes: Routes = [
   {
@@ -14,7 +15,10 @@ const routes: Routes = [
   },
   {
     path: 'edit/:id',
-    component: ProductFormComponent
+    component: ProductFormComponent,
+    resolve: {
+      product: ProductResolver
+    }
   }
 
 ];

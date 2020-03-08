@@ -21,26 +21,14 @@
     {
       "id": 4,
       "name": "dsfds",
-      "description": "dsfss",
-      "price": "342"
+      "description": "fsd",
+      "price": 0
     },
     {
       "id": 5,
-      "name": "sda",
-      "description": "sada",
-      "price": "23"
-    },
-    {
-      "id": 6,
-      "name": "sd",
-      "description": "sad",
-      "price": "23"
-    },
-    {
-      "id": 7,
-      "name": "Novo",
-      "description": "teste",
-      "price": 51515.1
+      "name": "cx",
+      "description": "zxcz",
+      "price": 0.01
     }
   ]
 }

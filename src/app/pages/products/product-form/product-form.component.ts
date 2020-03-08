@@ -1,10 +1,10 @@
-import { Product } from './../model/product';
 import { AfterContentChecked, Component, Injector, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { BaseResourceFormComponent } from 'src/app/shared/components/base-resource-form/base-resource-form.component';
-import { ProductService } from '../service/product.service';
-import { ToastrService } from 'ngx-toastr';
 import { Messages } from 'src/app/shared/messages/messages';
+import { AlertModalService } from 'src/app/shared/services/alert-modal.service';
+import { ProductService } from '../service/product.service';
+import { Product } from './../model/product';
 
 @Component({
   selector: 'app-product-form',
@@ -15,7 +15,7 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
 
   public id: number;
 
-  constructor(protected injector: Injector, private service: ProductService, private toastrService: ToastrService) {
+  constructor(protected injector: Injector, private service: ProductService, private alertService: AlertModalService) {
     super(injector);
   }
 
@@ -34,7 +34,7 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
       id: [null],
       name: [null, Validators.compose([Validators.required, Validators.minLength(2)])],
       description: [null, Validators.compose([Validators.required])],
-      price: [null, Validators.compose([Validators.required])]
+      price: [null, Validators.compose([Validators.required, Validators.minLength(1)])]
     });
   }
 
@@ -62,9 +62,9 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
 
     this.service.createProduct(product).subscribe(() => {
       this.router.navigate(['/products']);
-      this.toastrService.success(Messages.OPERACAO_SUCESSO);
+      this.alertService.showAlertSuccess(Messages.OPERACAO_SUCESSO);
     }, () => {
-      this.toastrService.error(Messages.OPERACAO_ERRO);
+      this.alertService.showAlertDanger(Messages.OPERACAO_ERRO);
     });
   }
 
@@ -73,9 +73,9 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
 
     this.service.updateProduct(this.id, product).subscribe(res => {
       this.router.navigate(['/products']);
-      this.toastrService.success(Messages.OPERACAO_SUCESSO);
+      this.alertService.showAlertSuccess(Messages.OPERACAO_SUCESSO);
     }, () => {
-      this.toastrService.error(Messages.OPERACAO_ERRO);
+      this.alertService.showAlertDanger(Messages.OPERACAO_ERRO);
     });
   }
 

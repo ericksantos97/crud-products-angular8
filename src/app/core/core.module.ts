@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { ModalModule } from 'ngx-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { ConfirmModalComponent } from '../shared/components/confirm-modal/confirm-modal.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -22,16 +24,21 @@ import { ToastrModule } from 'ngx-toastr';
         preventDuplicates: true,
         progressBar: true
       }
-    )
+    ),
+    ModalModule.forRoot()
   ],
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    ConfirmModalComponent
   ],
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     NavbarComponent
+  ],
+  entryComponents: [
+    ConfirmModalComponent
   ]
 })
 export class CoreModule { }

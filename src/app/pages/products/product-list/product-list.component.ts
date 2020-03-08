@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { EMPTY } from 'rxjs';
+import { switchMap, take } from 'rxjs/operators';
+import { Messages } from 'src/app/shared/messages/messages';
+import { AlertModalService } from 'src/app/shared/services/alert-modal.service';
 import { Product } from '../model/product';
 import { ProductService } from '../service/product.service';
-import { ToastrService } from 'ngx-toastr';
-import { Messages } from 'src/app/shared/messages/messages';
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +15,7 @@ export class ProductListComponent implements OnInit {
 
   public products: Product[] = [];
 
-  constructor(private service: ProductService, private toastrService: ToastrService) { }
+  constructor(private service: ProductService, private alertService: AlertModalService) { }
 
   ngOnInit() {
     this.getAllProducts();
@@ -24,19 +25,30 @@ export class ProductListComponent implements OnInit {
     this.service.getAllProducts().subscribe((result: Product[]) => {
       this.products = result;
     }, () => {
-      this.toastrService.error(Messages.ERRO_GENERICO_CARREGAMENTO('Products'));
+      this.alertService.showAlertDanger(Messages.ERRO_GENERICO_CARREGAMENTO('Products'));
     });
   }
 
-  public deleteProduct(productId: number) {
-    const mustDelete = confirm('Deseja realmente excluir este item.');
+  // public deleteProduct() {
+  //   const mustDelete = confirm('Deseja realmente excluir este item.');
 
-    if (mustDelete) {
-      this.service.deleteProduct(productId).subscribe(
-        () => this.getAllProducts(),
-        () => alert('Erro ao tentar excluir.')
-      );
-    }
+  //   if (mustDelete) {
+  //     this.service.deleteProduct(productId).subscribe(
+  //       () => this.getAllProducts(),
+  //       () => alert('Erro ao tentar excluir.')
+  //     );
+  //   }
+  // }
+
+  public deleteProduct(productId: number) {
+    const result$ = this.alertService.showConfirm('Confirmação', Messages.CONFIRMAR_EXCLUSAO);
+    result$.asObservable().pipe(
+      take(1),
+      switchMap(result => result ? this.service.delete(productId) : EMPTY)
+    ).subscribe(
+      () => this.getAllProducts(),
+      () => this.alertService.showAlertDanger(Messages.ERRO_EXCLUSAO)
+    );
   }
 
 }

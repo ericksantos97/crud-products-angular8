@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CurrencyMaskModule } from 'ngx-currency-mask';
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from 'ngx-currency-mask/src/currency-mask.config';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -31,6 +31,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   ],
   providers: [
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
-]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ProductModule { }

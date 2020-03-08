@@ -10,7 +10,7 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     CoreModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

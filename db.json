@@ -35,6 +35,12 @@
       "name": "sd",
       "description": "sad",
       "price": "23"
+    },
+    {
+      "id": 7,
+      "name": "Novo",
+      "description": "teste",
+      "price": 51515.1
     }
   ]
 }

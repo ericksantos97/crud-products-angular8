@@ -3,6 +3,8 @@ import { AfterContentChecked, Component, Injector, OnInit } from '@angular/core'
 import { Validators } from '@angular/forms';
 import { BaseResourceFormComponent } from 'src/app/shared/components/base-resource-form/base-resource-form.component';
 import { ProductService } from '../service/product.service';
+import { ToastrService } from 'ngx-toastr';
+import { Messages } from 'src/app/shared/messages/messages';
 
 @Component({
   selector: 'app-product-form',
@@ -13,7 +15,7 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
 
   public id: number;
 
-  constructor(protected injector: Injector, private service: ProductService) {
+  constructor(protected injector: Injector, private service: ProductService, private toastrService: ToastrService) {
     super(injector);
   }
 
@@ -58,11 +60,11 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
   public createProduct(): void {
     const product = Object.assign(new Product(), this.resourceForm.value);
 
-    this.service.createProduct(product).subscribe(res => {
+    this.service.createProduct(product).subscribe(() => {
       this.router.navigate(['/products']);
-      console.log(res);
-    }, err => {
-      console.log(err);
+      this.toastrService.success(Messages.OPERACAO_SUCESSO);
+    }, () => {
+      this.toastrService.error(Messages.OPERACAO_ERRO);
     });
   }
 
@@ -71,9 +73,9 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
 
     this.service.updateProduct(this.id, product).subscribe(res => {
       this.router.navigate(['/products']);
-      console.log(res);
-    }, err => {
-      console.log(err);
+      this.toastrService.success(Messages.OPERACAO_SUCESSO);
+    }, () => {
+      this.toastrService.error(Messages.OPERACAO_ERRO);
     });
   }
 

@@ -1,8 +1,8 @@
+import { Product } from './../model/product';
 import { AfterContentChecked, Component, Injector, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { BaseResourceFormComponent } from 'src/app/shared/components/base-resource-form/base-resource-form.component';
 import { ProductService } from '../service/product.service';
-import { Product } from './../model/product';
 
 @Component({
   selector: 'app-product-form',
@@ -37,6 +37,7 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
   }
 
   public checkRouteId(): void {
+    this.id = +this.route.snapshot.paramMap.get('id');
     const product = this.route.snapshot.data.product;
 
     if (product) {

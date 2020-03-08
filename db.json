@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Coca-cola",
       "description": "Refrigerante carbonado",
-      "price": "4.50"
+      "price": 4
     },
     {
       "id": 2,

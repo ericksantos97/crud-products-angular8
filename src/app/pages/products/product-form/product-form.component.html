@@ -24,7 +24,8 @@
             <div class="input-group-preprend">
               <div class="input-group-text">R$</div>
             </div>
-            <input type="text" class="form-control" id="description" formControlName="price">
+            <input currencyMask formControlName="price" [options]="{ thousands: '.', decimal: ',' }"/>
+            <!-- <input type="text" class="form-control" id="description" formControlName="price"> -->
           </div>
         </div>
       </div>

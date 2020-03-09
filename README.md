@@ -3,13 +3,13 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 
 **************************************************************************************************************************************
-Required version of the NodeJS installed on the machine: 12.14.1
+Required version of the NodeJS installed on the machine: <strong>12.14.1</strong>
 
-Enter the project directory and execute the command: npm install 
+Enter the project directory and execute the command: <strong>npm install </strong>
 
 Run bank in memory: npm run fakeDB (If you are unable to use the bank's server in memory, install it globally on your machine using the command: npm install -g json-server)
 
-To start the application run: ng serve
+To start the application run: <strong>ng serve</strong>
 **************************************************************************************************************************************
 
 ## Development server

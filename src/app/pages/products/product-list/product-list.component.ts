@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit {
     this.service.getAllProducts().subscribe((result: Product[]) => {
       this.products = result;
     }, () => {
-      this.alertService.showAlertDanger(Messages.ERRO_GENERICO_CARREGAMENTO('Products'));
+      this.alertService.showAlertDanger(Messages.ERRO_GENERICO_CARREGAMENTO('Produtos'));
     });
   }
 

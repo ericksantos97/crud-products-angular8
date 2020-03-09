@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod json-server --watch --delay 500 db.json"
+    "fakeDB": "json-server --watch --delay 500 db.json",
+    "heroku-postbuild": "ng build --prod; npm run fakeDB"
   },
   "engines": {
     "node": "12.14.1",

@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from 'angularx-social-login';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LoginService } from 'src/app/pages/login-layout/service/login.service';
 import { TokenService } from '../../auth/service/token.service';
+import { Router } from '@angular/router';
+import { browser } from 'protractor';
 
 @Component({
   selector: 'app-navbar',

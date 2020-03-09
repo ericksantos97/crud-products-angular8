@@ -13,8 +13,8 @@ To start the application run: <strong>ng serve</strong>
 
 To perform the login use the credentials: 
 
-user: admin
-password: 123 
+user: admin </br>
+password: 123 </br>
 
 or your GMAIL account.
 **************************************************************************************************************************************

@@ -29,17 +29,6 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  // public deleteProduct() {
-  //   const mustDelete = confirm('Deseja realmente excluir este item.');
-
-  //   if (mustDelete) {
-  //     this.service.deleteProduct(productId).subscribe(
-  //       () => this.getAllProducts(),
-  //       () => alert('Erro ao tentar excluir.')
-  //     );
-  //   }
-  // }
-
   public deleteProduct(productId: number) {
     const result$ = this.alertService.showConfirm('Confirmação', Messages.CONFIRMAR_EXCLUSAO);
     result$.asObservable().pipe(

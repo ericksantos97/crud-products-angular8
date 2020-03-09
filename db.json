@@ -17,30 +17,6 @@
       "name": "Detergente Minuano",
       "description": "Mistura de surfactantes com propriedades em soluções diluídas.",
       "price": 2
-    },
-    {
-      "id": 4,
-      "name": "dsfds",
-      "description": "fsd",
-      "price": 0
-    },
-    {
-      "id": 5,
-      "name": "cx",
-      "description": "zxcz",
-      "price": 0.01
-    },
-    {
-      "id": 6,
-      "name": "sdas",
-      "description": "asda",
-      "price": 32.2
-    },
-    {
-      "id": 7,
-      "name": "sda",
-      "description": "sada",
-      "price": 33.2
     }
   ]
 }

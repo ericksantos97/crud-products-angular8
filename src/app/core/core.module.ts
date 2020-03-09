@@ -5,9 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { ConfirmModalComponent } from '../shared/components/confirm-modal/confirm-modal.component';
 import { AuthGuard } from './auth/guards/auth-guard.guard';
+import { LoaderComponent } from './components/loader/loader.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
@@ -26,17 +28,20 @@ import { NavbarComponent } from './components/navbar/navbar.component';
         progressBar: true
       }
     ),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxSpinnerModule
   ],
   declarations: [
     NavbarComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    LoaderComponent
   ],
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NavbarComponent
+    NavbarComponent,
+    LoaderComponent
   ],
   entryComponents: [
     ConfirmModalComponent

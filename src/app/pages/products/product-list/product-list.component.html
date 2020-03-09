@@ -18,7 +18,7 @@
           <tr *ngFor="let product of products">
             <td><strong>{{ product.name }}</strong></td>
             <td><strong>{{ product.description }}</strong></td>
-            <td><strong>{{ product.price | currency }}</strong></td>
+            <td><strong>{{ product.price | currencyFormat }}</strong></td>
             <td>
               <a [routerLink]="['edit', product.id]" class="btn btn-outline-info btn-sm mr-2">Editar</a>
               <button (click)="deleteProduct(product.id)" class="btn btn-outline-danger btn-sm">Excluir</button>

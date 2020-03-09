@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "fakeDB": "json-server --watch --delay 500 db.json",
-    "heroku-postbuild": "ng build --prod; npm run fakeDB"
+    "heroku-postbuild": "npm run fakeDB; ng build --prod"
   },
   "engines": {
     "node": "12.14.1",

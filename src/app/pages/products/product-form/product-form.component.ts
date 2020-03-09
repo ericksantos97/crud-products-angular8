@@ -65,6 +65,7 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
       this.alertService.showAlertSuccess(Messages.OPERACAO_SUCESSO);
     }, () => {
       this.alertService.showAlertDanger(Messages.OPERACAO_ERRO);
+      this.submittingForm = false;
     });
   }
 
@@ -76,6 +77,7 @@ export class ProductFormComponent extends BaseResourceFormComponent implements O
       this.alertService.showAlertSuccess(Messages.OPERACAO_SUCESSO);
     }, () => {
       this.alertService.showAlertDanger(Messages.OPERACAO_ERRO);
+      this.submittingForm = false;
     });
   }
 

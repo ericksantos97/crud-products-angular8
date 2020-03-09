@@ -10,6 +10,13 @@ Enter the project directory and execute the command: <strong>npm install </stron
 Run bank in memory: npm run fakeDB (If you are unable to use the bank's server in memory, install it globally on your machine using the command: npm install -g json-server)
 
 To start the application run: <strong>ng serve</strong>
+
+To perform the login use the credentials: 
+
+user: admin
+password: 123 
+
+or your GMAIL account.
 **************************************************************************************************************************************
 
 ## Development server

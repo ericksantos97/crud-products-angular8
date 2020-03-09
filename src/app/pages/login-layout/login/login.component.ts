@@ -20,10 +20,10 @@ export class LoginComponent extends BaseResourceFormComponent implements OnInit 
   public socialUser: SocialUser;
 
   constructor(protected injector: Injector,
-              private service: LoginService,
-              private alertService: AlertModalService,
-              private tokenService: TokenService,
-              private authService: AuthService) {
+    private service: LoginService,
+    private alertService: AlertModalService,
+    private tokenService: TokenService,
+    private authService: AuthService) {
     super(injector);
   }
 
@@ -53,7 +53,7 @@ export class LoginComponent extends BaseResourceFormComponent implements OnInit 
   public signIn(): void {
     if (this.resourceForm.valid) {
       if (this.checkValidUser()) {
-        this.successfulActionLogin();
+        this.successfulActionLogin(this.resourceForm.value.username);
         return;
       }
 
@@ -77,9 +77,9 @@ export class LoginComponent extends BaseResourceFormComponent implements OnInit 
     return (username === this.user.username && password === this.user.password);
   }
 
-  private successfulActionLogin(userNameGoogle?: string): void {
-    this.tokenService.setToken('token', userNameGoogle ? userNameGoogle : this.resourceForm.value.username);
-    this.service.setEvent();
+  private successfulActionLogin(userName: string): void {
+    this.tokenService.setToken('token', userName);
+    this.service.setEvent(userName);
     this.router.navigate(['/products']);
   }
 

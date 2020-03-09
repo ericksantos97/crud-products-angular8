@@ -16,8 +16,8 @@ export class LoginService {
     return this.user;
   }
 
-  public setEvent(): void {
-    this.subject.next(this.user.name);
+  public setEvent(username): void {
+    this.subject.next(username);
   }
 
   public getEvent(): Observable<string> {

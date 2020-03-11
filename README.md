@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 
+[Demo-Crud](https://crud-product-frontend.herokuapp.com/)
+
 **************************************************************************************************************************************
 Required version of the NodeJS installed on the machine: <strong>12.14.1</strong>
 
